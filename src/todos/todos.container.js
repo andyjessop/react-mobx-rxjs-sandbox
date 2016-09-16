@@ -1,14 +1,15 @@
 import {Component} from 'react';
 import {TodoService} from './todo.service';
 import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 
-@observer
-export class TodoContainer extends Component {
+@observer export class TodoContainer extends Component {
+
+    @observable todos = [];
 
     constructor(props) {
         super(props);
         this.todoService = new TodoService();
-        this.todos = [];
     }
 
     componentDidMount() {
